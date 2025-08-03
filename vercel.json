@@ -1,8 +1,18 @@
 {
+  "version": 2,
   "builds": [
-    { "src": "business_card_generator/wsgi.py", "use": "@vercel/python" }
+    { 
+      "src": "business_card_generator/wsgi.py", 
+      "use": "@vercel/python",
+      "config": {
+        "pipInstallArgs": "-e ."
+      }
+    }
   ],
   "routes": [
-    { "src": "(.*)", "dest": "business_card_generator/wsgi.py"}
+    { 
+      "src": "/(.*)", 
+      "dest": "business_card_generator/wsgi.py"
+    }
   ]
 }
